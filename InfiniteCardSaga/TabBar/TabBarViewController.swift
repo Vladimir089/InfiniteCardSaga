@@ -41,7 +41,11 @@ class TabBarViewController: UITabBarController {
         let postItem = UITabBarItem(title: "Posts", image: .tab2.resize(targetSize: CGSize(width: 24, height: 24)), tag: 1)
         postsVC.tabBarItem = postItem
         
-        viewControllers = [gameVC, postsVC]
+        let comboVC = ComboViewController()
+        let comboItem = UITabBarItem(title: "Combination", image: .tab3.resize(targetSize: CGSize(width: 24, height: 24)), tag: 1)
+        comboVC.tabBarItem = comboItem
+        
+        viewControllers = [gameVC, postsVC, comboVC]
         
     }
     

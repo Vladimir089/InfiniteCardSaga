@@ -120,8 +120,7 @@ class DetailPostViewController: UIViewController {
     @objc func delPost() {
         
         postsArr.remove(at: index)
-        
-        
+
         do {
             let encoder = JSONEncoder()
             let data = try encoder.encode(postsArr)
@@ -131,9 +130,7 @@ class DetailPostViewController: UIViewController {
         } catch {
             print("Ошибка при кодировании постов: \(error)")
         }
-        
-        
-        
+
     }
     
     @objc func goBack() {
