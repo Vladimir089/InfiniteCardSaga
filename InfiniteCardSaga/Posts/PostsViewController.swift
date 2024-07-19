@@ -201,11 +201,43 @@ extension PostsViewController: UICollectionViewDelegate, UICollectionViewDataSou
             make.left.top.equalToSuperview().inset(20)
         }
         
+        let nameLabel = UILabel()
+        nameLabel.font = .systemFont(ofSize: 18, weight: .semibold)
+        nameLabel.textColor = .white
+        nameLabel.text = postsArr[indexPath.row].title
+        nameLabel.numberOfLines = 3
+
+        cell.addSubview(nameLabel)
+        nameLabel.snp.makeConstraints { make in
+            make.left.right.equalToSuperview().inset(20)
+            make.top.equalTo(dateLabel.snp.bottom).inset(-5)
+            make.height.equalTo(72)
+        }
+        
+        let textLabel = UILabel()
+        textLabel.font = .systemFont(ofSize: 12, weight: .regular)
+        textLabel.textColor = .white.withAlphaComponent(0.5)
+        textLabel.text = postsArr[indexPath.row].text
+        textLabel.numberOfLines = 2
+        cell.addSubview(textLabel)
+        textLabel.snp.makeConstraints { make in
+            make.left.right.equalToSuperview().inset(20)
+            make.top.equalTo(nameLabel.snp.bottom).inset(-5)
+        }
+        
+        
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: collectionView.frame.width, height: 166)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let vc = DetailPostViewController()
+        vc.delegate = self
+        vc.index = indexPath.row
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     
