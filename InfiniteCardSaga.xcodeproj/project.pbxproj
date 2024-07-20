@@ -21,6 +21,7 @@
 		15F693E02C499C2F00FC0EA1 /* NewPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F693DF2C499C2F00FC0EA1 /* NewPostViewController.swift */; };
 		15F693E22C4A915400FC0EA1 /* DetailPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F693E12C4A915400FC0EA1 /* DetailPostViewController.swift */; };
 		15F693E52C4AED6700FC0EA1 /* ComboViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F693E42C4AED6700FC0EA1 /* ComboViewController.swift */; };
+		15F693E92C4C0E4000FC0EA1 /* StatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F693E82C4C0E4000FC0EA1 /* StatViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +40,7 @@
 		15F693DF2C499C2F00FC0EA1 /* NewPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPostViewController.swift; sourceTree = "<group>"; };
 		15F693E12C4A915400FC0EA1 /* DetailPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPostViewController.swift; sourceTree = "<group>"; };
 		15F693E42C4AED6700FC0EA1 /* ComboViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComboViewController.swift; sourceTree = "<group>"; };
+		15F693E82C4C0E4000FC0EA1 /* StatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +74,7 @@
 		15F693B42C4946A700FC0EA1 /* InfiniteCardSaga */ = {
 			isa = PBXGroup;
 			children = (
+				15F693E72C4C0E3300FC0EA1 /* Statistics */,
 				15F693E32C4AED5900FC0EA1 /* Combo */,
 				15F693DC2C499B7400FC0EA1 /* Model */,
 				15F693D92C49806F00FC0EA1 /* Posts */,
@@ -152,6 +155,14 @@
 				15F693E42C4AED6700FC0EA1 /* ComboViewController.swift */,
 			);
 			path = Combo;
+			sourceTree = "<group>";
+		};
+		15F693E72C4C0E3300FC0EA1 /* Statistics */ = {
+			isa = PBXGroup;
+			children = (
+				15F693E82C4C0E4000FC0EA1 /* StatViewController.swift */,
+			);
+			path = Statistics;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -240,6 +251,7 @@
 				15F693D82C4963EB00FC0EA1 /* GameViewController.swift in Sources */,
 				15F693E52C4AED6700FC0EA1 /* ComboViewController.swift in Sources */,
 				15F693B82C4946A700FC0EA1 /* SceneDelegate.swift in Sources */,
+				15F693E92C4C0E4000FC0EA1 /* StatViewController.swift in Sources */,
 				15F693E22C4A915400FC0EA1 /* DetailPostViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

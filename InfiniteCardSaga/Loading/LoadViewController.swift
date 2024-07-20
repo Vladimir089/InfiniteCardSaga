@@ -57,7 +57,7 @@ class LoadViewController: UIViewController {
         
         if isBet == false {
             if UserDefaults.standard.object(forKey: "tab") != nil {
-                //self.navigationController?.setViewControllers([TabBarViewController()], animated: true)
+                self.navigationController?.setViewControllers([TabBarViewController()], animated: true)
             } else {
                 self.navigationController?.setViewControllers([UserOnbOneViewController()], animated: true)
             }

@@ -8,14 +8,16 @@
 import UIKit
 
 var postsArr = [Post]()
+var stat: Stat?
 
 class TabBarViewController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        UserDefaults.standard.setValue(true, forKey: "tab")
         settings()
         loadPosts()
+        loadStat()
     }
     
 
@@ -45,7 +47,11 @@ class TabBarViewController: UITabBarController {
         let comboItem = UITabBarItem(title: "Combination", image: .tab3.resize(targetSize: CGSize(width: 24, height: 24)), tag: 1)
         comboVC.tabBarItem = comboItem
         
-        viewControllers = [gameVC, postsVC, comboVC]
+        let statVC = StatViewController()
+        let statItem = UITabBarItem(title: "Statistics", image: .tab4.resize(targetSize: CGSize(width: 24, height: 24)), tag: 1)
+        statVC.tabBarItem = statItem
+        
+        viewControllers = [gameVC, postsVC, comboVC, statVC]
         
     }
     
@@ -55,6 +61,17 @@ class TabBarViewController: UITabBarController {
             do {
                 let decoder = JSONDecoder()
                 postsArr = try decoder.decode([Post].self, from: data)
+            } catch {
+                print("Ошибка при декодировании постов: \(error)")
+            }
+        }
+    }
+    
+    func loadStat() {
+        if let data = UserDefaults.standard.data(forKey: "stat") {
+            do {
+                let decoder = JSONDecoder()
+                stat = try decoder.decode(Stat.self, from: data)
             } catch {
                 print("Ошибка при декодировании постов: \(error)")
             }
