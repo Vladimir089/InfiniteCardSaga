@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol StatViewControllerDelegate: AnyObject {
+    func reload()
+}
+
 class StatViewController: UIViewController {
     
     var postsNumberLabel, myGamesLabel, myVictoriesLabel, winsLabel, lostLabel: UILabel?
@@ -60,7 +64,7 @@ class StatViewController: UIViewController {
             return button
         }()
         view.addSubview(newStatButton)
-        //newPostButton.addTarget(self, action: #selector(createNewPost), for: .touchUpInside)
+        newStatButton.addTarget(self, action: #selector(openEdit), for: .touchUpInside)
         newStatButton.snp.makeConstraints { make in
             make.height.equalTo(36)
             make.width.equalTo(96)
@@ -179,6 +183,12 @@ class StatViewController: UIViewController {
         
     }
     
+    @objc func openEdit() {
+        let vc = EditStatViewController()
+        vc.delegate = self
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
     
     func createBackView() -> UIView {
         let view = UIView()
@@ -196,6 +206,16 @@ class StatViewController: UIViewController {
     }
 
     
+}
+
+extension StatViewController: StatViewControllerDelegate {
+    func reload() {
+        postsNumberLabel?.text = "\(stat?.posts ?? 0)"
+        myGamesLabel?.text = "\(stat?.games ?? 0)"
+        myVictoriesLabel?.text = "\(stat?.victories ?? 0)"
+        winsLabel?.text = "+$\(stat?.won ?? 0.00)0"
+        lostLabel?.text = "-$\(stat?.lost ?? 0.00)0"
+    }
 }
 
 

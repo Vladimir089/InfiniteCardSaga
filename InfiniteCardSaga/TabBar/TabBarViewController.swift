@@ -72,8 +72,9 @@ class TabBarViewController: UITabBarController {
             do {
                 let decoder = JSONDecoder()
                 stat = try decoder.decode(Stat.self, from: data)
+                print(stat)
             } catch {
-                print("Ошибка при декодировании постов: \(error)")
+                print("Ошибка при декодировании статистики: \(error)")
             }
         }
     }

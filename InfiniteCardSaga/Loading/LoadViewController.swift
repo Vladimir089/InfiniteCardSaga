@@ -16,7 +16,7 @@ class LoadViewController: UIViewController {
         super.viewDidLoad()
         settingsVC()
         view.backgroundColor = UIColor(red: 34/255, green: 53/255, blue: 120/255, alpha: 1)
-        timer = Timer.scheduledTimer(timeInterval: 0, target: self, selector: #selector(nextPage), userInfo: nil, repeats: false) //менять на 5
+        timer = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(nextPage), userInfo: nil, repeats: false) //менять на 5
         
     }
     
